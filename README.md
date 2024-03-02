@@ -63,9 +63,26 @@ curl 명령어를 이용해서 설치용 스크립트를 다운로드받아서 �
 ```
 다음과 같이 나오면 정상적으로 docker가 설치된 것이다.
 ```
-
-
-
+## gitlab-runner 설치 방법
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/1f831e4e-5a5a-4349-a8af-12bb4753759d)
+```
+gitlab-runner 공식 문서에서 안내하는 방식으로 설치한다.
+Gitlab 리포지토리를 우분투에 등록하는 과정으로 다음 명령어를 실행한다.
+```
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/64cf9af8-0000-446d-b376-29df5bedcfd4)
+```
+You can now install packages라는 메시지가 나오면 Gitlab 리포지토리를 우분투에 등록이 완료된 것이다.
+```
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/e3118c49-631e-43ca-990f-bc24d601f5f6)
+```
+이제 다음 명령어를 실행하여 gitlab-runner를 설치한다.
+```
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/bdfc9844-d438-41f8-90ff-dbe2aa1ba7cf)
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/dcbce113-d94d-476e-bba8-92046547fe03)
+```
+설치가 완료되고 다음 명령어로 설치가 제대로 되었는지 확인할 수 있다.
+gitlab-runner: Service is running 이라는 메시지가 출력되면 성공이다.
+```
 
 
 
