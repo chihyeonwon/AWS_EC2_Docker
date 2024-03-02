@@ -24,6 +24,10 @@ Ubuntu Server 20.04 LTS (HVM), SSD Volumn Type을 선택한다.
 ```
 키 페어는 아까 생성한 fullstack-recommender-key를 넣어준다.
 ```
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/7340756f-f9e8-465b-9b96-bb98c55e7307)
+```
+AMI 선택, 인스턴스 유형 선택, 스토리지 선택, 키 페어 선택등을 마치고 인스턴스 시작을 누른다.
+```
 ![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/15bcfb20-b398-413d-8cc1-f221bf37022e)
 ```
 생성한 EC2 인스턴스가 정상적으로 실행 중인 것을 확인할 수 있다.
