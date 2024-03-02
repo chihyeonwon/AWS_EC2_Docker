@@ -3,10 +3,6 @@
 ```
 솔루션 탭의 가상 머신 시작을 눌러서 EC2 서비스로 들어간다.
 ```
-![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/a8b447b4-d97c-4cfa-b02f-8a9601926b0f)
-```
-인스턴스 시작을 누른다.
-```
 ![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/4f90dab7-b40a-4eb1-b36a-01ce4c19e17f)
 ![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/73c3b7bf-2a6e-4d90-b361-e88d6cdbffd8)
 ```
