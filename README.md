@@ -34,7 +34,7 @@ AMI 선택, 인스턴스 유형 선택, 스토리지 선택, 키 페어 선택�
 ```
 
 ## EC2 환경 설정 및 배포 환경 설정
-
+## EC2 연결
 ![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/dce9c887-1822-494a-ad09-5a4748e3f6bd)
 ```
 인스턴스 ID에 오른쪽 클릭하여 연결이라는 메뉴를 클릭한다.
@@ -47,6 +47,7 @@ AMI 선택, 인스턴스 유형 선택, 스토리지 선택, 키 페어 선택�
 ```
 연결이 되면 검정색 화면이 나타나고 이제 docker와 gitlab-runner 프로그램을 우분투 환경에 설치한다.
 ```
+## Docker 설치 방법
 ![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/46a48fb9-d350-42ff-a5dc-15389c1c8240)
 ```
 curl 명령어를 이용해서 설치용 스크립트를 다운로드받아서 설치한다음 sudo 명령어로 스크립트를 실행한다.
