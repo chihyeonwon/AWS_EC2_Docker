@@ -84,6 +84,9 @@ You can now install packages라는 메시지가 나오면 Gitlab 리포지토리
 설치가 완료되고 다음 명령어로 설치가 제대로 되었는지 확인할 수 있다.
 gitlab-runner: Service is running 이라는 메시지가 출력되면 성공이다.
 ```
+## GitLab deploy branch 분리
+
+
 
 
 
