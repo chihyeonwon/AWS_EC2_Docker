@@ -118,7 +118,12 @@ deploy 브랜치가 GitLab에 업로드 된 것을 확인할 수 있다.
 3. 만든 백엔드 서버를 dockerize 하여 배포한다.
 
 #### gitlab-runner 등록
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/afbcdbfc-31ee-4e3c-b2ef-a89cb4930ba1)
+```
+GitLab-Settings-CI/CD 메뉴에서 Runners 메뉴의 Expand를 눌러 확장하면 Registration Token을 확인할 수 있다.
 
+토큰 값을 복사해준다.
+```
 
 
 
