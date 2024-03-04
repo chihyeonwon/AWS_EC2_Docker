@@ -124,6 +124,48 @@ GitLab-Settings-CI/CD 메뉴에서 Runners 메뉴의 Expand를 눌러 확장하�
 
 토큰 값을 복사해준다.
 ```
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/f1dfa088-8f83-4037-ac55-f561791bd9d7)
+```
+EC2에 연결해서 다음 명령어로 gitlab-runner 등록을 시작한다.
+
+Enter the GitLab instance URL에 https://gitlab.com/을 입력한다.
+```
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/39420ce2-afab-4ef2-8a2b-1e7063df74e1)
+```
+토큰을 입력하는 프롬프트에서 아까 Gitlab runner에서 복사해 두었던 토큰을 입력한다.
+```
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/da463134-1918-4f92-8718-aceb9b9b1073)
+```
+runner가 어떤 역할을 하는지 알아보기 쉽도록 지정하는 description 항목이다.
+원하는 설명을 적으면 되는데 여기서 fullstack-api라고 작성한다.
+```
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/0f18916a-7e0b-4b5d-b9a4-58351c4a0634)
+```
+다음으로 tag를 입력하는 프롬프트가 나온다. 이 tags는 중요하다. 나중에 gitlab-runner의 tags를 이용해서
+어떤 runner에 CI를 실행시킬 것인지 결정하기 때문이다.
+
+통일된 코드를 가지기 위해서 fullstack-api라고 입력한다.
+```
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/d7810d1b-2f32-4f4e-8153-46a0ffae15de)
+```
+Enter optional maintenance note for runner 프롬프트는 빈칸으로 넘기고 다음에 나오는 executor를 선택하는 프롬프트에
+shell을 입력한다.
+```
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/f8720d07-bef2-479a-af9c-af430a12e0cb)
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/2a8e67a4-0c5f-48ea-9174-1112ec6b5ee5)
+```
+등록 완료 메시지가 나타나고 GitLab-Setting-CI/CD 메뉴의 하단에 fullstack-api라는 이름의 runner가 등록된 것을
+확인할 수 있다.
+```
+#### .gitlab-ci.yml 파일 코드에 추가
+```
+코드에 .gitlab-ci.yml을 추가해서 deploy 브랜치에 배포했을 때 자동으로 GitLab에서 배포가 진행되도록 만든다.
+```
+
+```
+GitLab에서 runner를 사용하는 리포지토리인지 아닌지를 감지하기 위해서는 .gitlab-ci.yml 라는 이름의 파일이 필요하다.
+프로젝트 가장 상단의 폴더에 .gitlab-ci.yml 파일을 만들어준다.(파일 이름의 가장 앞에 마침표를 확인한다)
+```
 
 
 
