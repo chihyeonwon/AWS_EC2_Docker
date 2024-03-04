@@ -85,7 +85,39 @@ You can now install packages라는 메시지가 나오면 Gitlab 리포지토리
 gitlab-runner: Service is running 이라는 메시지가 출력되면 성공이다.
 ```
 ## GitLab deploy branch 분리
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/5343e6e5-8f97-43c9-b672-33b90eae84ec)
+```
+VS Code에서 지금까지 변경한 모든 내용을 stage 상태로 업로드한다.
+```
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/892ee926-3f77-46b8-9fd9-2714cac838e7)
+```
+stage 상태가 되면 commit을 할 준비가 된 것이다. git commit을 입력하여 stage에 있는 내용을 모두 커밋한다.
+```
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/e006c758-d649-4d57-bcf9-b6dbcf721c5c)
+```
+git push를 하여 지금까지 했던 내용을 GitLab에 모두 업로드한다.
+```
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/3b271a72-8f22-422b-879f-ee9e612f413e)
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/d9a915b4-d9a3-435d-838a-fcdd3a43c9ba)
+```
+git create를 입력하고 브랜치 이름을 deploy로 생성한다. 이렇게 하면 로컬, 즉 내 컴퓨터에만 있는 브랜치인 deploy가 생성된다.
+```
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/9433329a-48ce-4066-aeea-ed67e558373c)
+```
+deploy 브랜치를 푸시 과정을 통해서 GitLab에 업로드한다. upstream branch 경고는 무시하고 ok를 누른다.
+브랜치만 따로 푸시하는 경우에는 stage -commit 과정을 따로 해줄 필요가 없다. 안에 들어 있는 내용은 바뀐 게 없기 때문이다.
+```
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/a17e7a86-196e-4bc4-b073-ea58f16d5aa4)
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/3621bfbd-3c75-4822-a815-f1380d0e946f)
+```
+deploy 브랜치가 GitLab에 업로드 된 것을 확인할 수 있다.
+```
+## GitLab runner로 배포 자동화
+1. gitlab-runner를 AWS EC2에 등록한다.
+2. gitlab-runner를 실행할 .gitlab-ci.yml파일을 만든다.
+3. 만든 백엔드 서버를 dockerize 하여 배포한다.
 
+#### gitlab-runner 등록
 
 
 
