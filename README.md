@@ -200,8 +200,43 @@ tags:라는 부분은 gitlab-runner 중 어떤 tag를 가진 gitlab-runner를 �
 script: docker 명령어들이 포함되어 있는 것을 볼 수 있는데, 기존에 동작하던 docker를 멈추고 새로운 docker의 이미지를 만든 후
 웹 서버가 실행되도록 하는 명령어이다. 아직 dockerfile을 만들어주지 않아서 deploy 브랜치에 푸시해도 제대로 작동하지 않는다.
 ```
+## docker 컨테이너를 EC2에 배포
+```
+docker 컨테이너로 만들어주는 것을 dockerize라고 하는데, 일종의 가상 머신이다.
+dockerize를 하게 되면 서버를 이전하거나 다른 컴퓨터에서 작업할 때 별다른 환경설정 없이 docker image 하나로 실행까지 가능하다.
+```
+#### Dockerfile
+```dockerfile
+FROM python:3.9
 
+EXPOSE 80
 
+COPY ./app /app
+
+COPY requirements.txt /app/requirements.txt
+
+WORKDIR /app
+
+RUN python3 -m pip install --no-cache-dir --upgrade \
+    setuptools \
+    wheel \
+    && \
+    python3 -m pip install --trusted-host pypi.python.org -r requirements.txt
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
+```
+```
+Dockerfile이라는 이름으로 파일을 추가한다.(첫 문자를 대문자 D로 사용하는 것에 유의한다)
+
+Python 3.9 환경을 불러온다. Python, Node, Go 등 필요할 만의 언어를 docker image는 docker hub에 등록이 되어 제공한다.
+```
+#### requirements.txt
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/7c4183e9-70ea-43a7-9063-0ec11a550ac2)
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/1c74e339-4787-4ea3-a521-80188bad397e)
+```
+requirements.txt는 지금까지 설치했던 파이썬 패키지들의 목록인데,
+docker가 환경설정을 할 때 패키지 하나하나 따로 설치해주기는 어려워서 목록으로 만들어주는 것이다.
+```
 
 
 
