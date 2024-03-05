@@ -237,7 +237,33 @@ Python 3.9 환경을 불러온다. Python, Node, Go 등 필요할 만의 언어�
 requirements.txt는 지금까지 설치했던 파이썬 패키지들의 목록인데,
 docker가 환경설정을 할 때 패키지 하나하나 따로 설치해주기는 어려워서 목록으로 만들어주는 것이다.
 ```
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/b6ea3f02-9142-4b91-b38e-626648811908)
+```
+docker를 이용한 배포가 모두 완료되고 실제로 동작하고 있는지 확인한다.
+```
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/3d0caca8-854a-4c9e-8172-11894510c5fb)
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/2f814dd3-5da4-4dc1-82ac-ae4d470ea518)
+```
+AWS EC2 인스턴스 대시보드로 이동한다. 인스턴스 - Detail - Public IPv4 address가 접근해야 할 주소다.
+이 주소를 복사하거나 따로 저장해두고 security group을 편집한다. 22번 포트는 SSH, 즉 터미널로 접근할 수 있는 포트번호다.
 
+웹 서버가 작동하고 있는 8080번 포트를 inbound rules에 추가해야 한다.
+```
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/48f21041-9b03-43f8-b663-d1d49d707361)
+```
+인바인드 규칙 편집을 클릭하고 기존 SSH 인바운드 규칙 밑의 규칙 추가를 눌러서 새로운 인바운드 규칙을 추가한다.
+-Port Range : 8080
+-Source type : Anywhere-IPv4
+
+규칙을 입력하고 규칙 저장을 누른다.
+```
+![image](https://github.com/chihyeonwon/AWS_EC2_Docker/assets/58906858/243a0c35-b061-4e26-8f9e-9001e62b472b)
+```
+복사해둔 EC2 인스턴스의 퍼블릭 public IPv4 address 주소를 http://복사해둔주소:8080 으로 접속하면 개발한 백엔드의
+내용을 볼 수 있습니다.
+
+gitlab-ci를 이용해서 백엔드 서버를 배포하는 방법을 알게 되었습니다.
+```
 
 
 
