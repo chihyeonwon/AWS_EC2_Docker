@@ -161,11 +161,47 @@ shell을 입력한다.
 ```
 코드에 .gitlab-ci.yml을 추가해서 deploy 브랜치에 배포했을 때 자동으로 GitLab에서 배포가 진행되도록 만든다.
 ```
+```yml
+image: python:3.9
 
+variables:
+  IMAGE_VERSION: v1.0.0
+  WORK_DIR: .
+  NODE_ENV: development
+  DOCKER_DRIVER: overlay2
+  DOCKER_FILE: Dockerfile
+  DOCKER_BUILD_CONTEXT: .
+  DOCKER_IMAGE: fullstack-recommender:${IMAGE_VERSION}
+cache:
+  key: "$CI_COMMIT_REF_SLUG"
+stages:
+  - deploy
+Deploy:
+  stage: deploy
+  only:
+    - deploy
+  tags:
+    - fullstack-api
+  script:
+    - docker stop $(docker ps -aq) || true
+    - docker build -t ${DOCKER_IMAGE} .
+    - docker run -it -d -p 8080:80 --restart=unless-stopped ${DOCKER_IMAGE}
+```
 ```
 GitLab에서 runner를 사용하는 리포지토리인지 아닌지를 감지하기 위해서는 .gitlab-ci.yml 라는 이름의 파일이 필요하다.
 프로젝트 가장 상단의 폴더에 .gitlab-ci.yml 파일을 만들어준다.(파일 이름의 가장 앞에 마침표를 확인한다)
+
+only:라는 부분이 언제 .gitlab-ci.yml이 작동할지 정해주는 역할이다. deploy로 정의했으므로 deploy branch에 푸시할 때만
+이 파일이 작동한다는 뜻이다.
+
+tags:라는 부분은 gitlab-runner 중 어떤 tag를 가진 gitlab-runner를 사용할 것인지 지정하는 것이다. 위에서 fullstack-api로
+설정했다.
+
+script: docker 명령어들이 포함되어 있는 것을 볼 수 있는데, 기존에 동작하던 docker를 멈추고 새로운 docker의 이미지를 만든 후
+웹 서버가 실행되도록 하는 명령어이다. 아직 dockerfile을 만들어주지 않아서 deploy 브랜치에 푸시해도 제대로 작동하지 않는다.
 ```
+
+
 
 
 
